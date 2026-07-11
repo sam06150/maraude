@@ -1,0 +1,99 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0f172a" />
+<title>Maraude — outil de terrain solidaire</title>
+<link rel="manifest" href="manifest.json" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="styles.css?v=4" />
+
+<div id="app">
+  <!-- Barre latérale (desktop) / entête (mobile) -->
+  <aside id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">🤝</div>
+      <div class="brand-text">
+        <strong>Maraude</strong>
+        <span>Outil de terrain solidaire</span>
+      </div>
+    </div>
+
+    <nav id="nav">
+      <button class="nav-btn active" data-view="terrain"><span class="nav-ico">🧭</span><span>Terrain</span></button>
+      <button class="nav-btn" data-view="personnes"><span class="nav-ico">🧑</span><span>Personnes</span></button>
+      <button class="nav-btn" data-view="signalements"><span class="nav-ico">🚨</span><span>Signalements</span></button>
+      <button class="nav-btn" data-view="coordination"><span class="nav-ico">📅</span><span>Coordination</span></button>
+      <button class="nav-btn" data-view="stock"><span class="nav-ico">📦</span><span>Stock</span></button>
+      <button class="nav-btn" data-view="ressources"><span class="nav-ico">🗺️</span><span>Ressources</span></button>
+      <button class="nav-btn" data-view="carte"><span class="nav-ico">🌍</span><span>Carte globale</span></button>
+      <button class="nav-btn" data-view="admin"><span class="nav-ico">👥</span><span>Admin / Personnel</span></button>
+    </nav>
+
+    <div id="sync-status" class="sync-status" title="État de la synchronisation">⚪ Synchro désactivée</div>
+    <div class="sidebar-foot">
+      <div id="net-status" class="net"><span class="dot"></span><span class="net-label">Hors-ligne prêt</span></div>
+      <button id="sync-btn" class="ghost-btn" title="Synchroniser maintenant" aria-label="Synchroniser maintenant">🔄</button>
+      <button id="share-btn" class="ghost-btn" title="Partager l'application (QR)" aria-label="Partager l'application par QR code">📤</button>
+      <button id="settings-btn" class="ghost-btn" title="Réglages" aria-label="Réglages">⚙️</button>
+      <button id="theme-toggle" class="ghost-btn" title="Basculer thème" aria-label="Basculer le thème clair/sombre">🌙</button>
+    </div>
+  </aside>
+
+  <!-- Contenu principal -->
+  <main id="main">
+    <header id="topbar">
+      <button id="menu-toggle" class="ghost-btn only-mobile" aria-label="Menu">☰</button>
+      <h1 id="view-title">Terrain</h1>
+      <div class="topbar-actions">
+        <span id="maraude-active" class="chip chip-muted">Aucune maraude en cours</span>
+        <button id="search-btn" class="ghost-btn" title="Recherche globale (Ctrl+K)" aria-label="Recherche globale">🔎</button>
+      </div>
+    </header>
+
+    <div id="cold-banner" class="cold-banner hidden" role="status">
+      ❄️ <b>Plan Grand Froid activé</b> — priorité aux mises à l'abri et aux boissons chaudes.
+    </div>
+
+    <section id="view"></section>
+  </main>
+
+  <!-- Navigation basse (mobile) -->
+  <nav id="tabbar">
+    <button class="tab-btn active" data-view="terrain">🧭<span>Terrain</span></button>
+    <button class="tab-btn" data-view="personnes">🧑<span>Personnes</span></button>
+    <button class="tab-btn" data-view="signalements">🚨<span>Alertes</span></button>
+    <button class="tab-btn" data-view="coordination">📅<span>Coord.</span></button>
+    <button class="tab-btn" data-view="stock">📦<span>Stock</span></button>
+    <button class="tab-btn" data-view="ressources">🗺️<span>Ressrc.</span></button>
+    <button class="tab-btn" data-view="carte">🌍<span>Carte</span></button>
+    <button class="tab-btn" data-view="admin">👥<span>Admin</span></button>
+  </nav>
+</div>
+
+<!-- Fenêtre modale générique -->
+<div id="modal-backdrop" class="hidden">
+  <div id="modal" role="dialog" aria-modal="true">
+    <div id="modal-head">
+      <h2 id="modal-title">Titre</h2>
+      <button id="modal-close" class="ghost-btn" aria-label="Fermer">✕</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<div id="lock-screen" class="hidden">
+  <div class="lock-box">
+    <div class="lock-emoji">🔒</div>
+    <h2>Accès protégé</h2>
+    <p class="muted">Données sensibles — saisis le code PIN.</p>
+    <input id="lock-pin" type="password" inputmode="numeric" autocomplete="off" placeholder="Code PIN" />
+    <button class="btn block" id="lock-go">Déverrouiller</button>
+    <p id="lock-err" class="muted"></p>
+  </div>
+</div>
+
+<div id="toast" class="hidden"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data.js?v=4"></script>
+<script src="app.js?v=4"></script>
+<script src="sync.js?v=4"></script>

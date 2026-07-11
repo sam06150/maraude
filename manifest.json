@@ -1,0 +1,24 @@
+{
+  "name": "Maraude — outil de terrain solidaire",
+  "short_name": "Maraude",
+  "description": "Coordonner les maraudes, suivre les rencontres, gérer les stocks, signaler et trouver des ressources.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='38' fill='%230f172a'/%3E%3Ctext x='96' y='128' font-size='110' text-anchor='middle'%3E%F0%9F%A4%9D%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='102' fill='%230f172a'/%3E%3Ctext x='256' y='340' font-size='300' text-anchor='middle'%3E%F0%9F%A4%9D%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

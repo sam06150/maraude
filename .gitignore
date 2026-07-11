@@ -1,0 +1,14 @@
+# Config locale Claude Code
+.claude/settings.local.json
+
+# Sauvegardes / exports de données (ne jamais publier de données réelles)
+*.backup.json
+maraude-export*.json
+maraude-*.json
+
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
