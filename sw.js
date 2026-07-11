@@ -3,7 +3,7 @@
    est en ligne, il exécute TOUJOURS la dernière version déployée. Le cache ne
    sert que de secours hors-ligne. Les données (localStorage) ne sont jamais
    touchées par le service worker : une mise à jour ne les efface pas. */
-const VERSION = "2026-07-11-2"; // ← incrémenter à CHAQUE déploiement (force le rafraîchissement des sessions déjà ouvertes)
+const VERSION = "1.90"; // ← incrémenter à CHAQUE déploiement (force le rafraîchissement des sessions déjà ouvertes)
 const CACHE = "maraude-" + VERSION;
 const OFFLINE_ASSETS = [
   "./",

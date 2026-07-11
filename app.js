@@ -2331,7 +2331,9 @@ function openSettings() {
     <p class="muted" style="font-size:12px;margin-top:4px">Une question, un bug, une idée&nbsp;? Écris-moi&nbsp;:</p>
     <a class="btn secondary small block" style="margin-top:6px" href="mailto:sdsb.2023@gmail.com?subject=Maraude%20—%20contact">📧 sdsb.2023@gmail.com</a>
 
-    <button class="btn block" id="cfg-save" style="margin-top:14px">Enregistrer</button>`,
+    <button class="btn block" id="cfg-save" style="margin-top:14px">Enregistrer</button>
+
+    <p class="muted" style="font-size:11px;text-align:center;margin-top:14px;opacity:.7">Maraude — Version 1.90 (bêta)</p>`,
   (body) => {
     let cold = isCold();
     $("#cfg-cold", body).onclick = (e) => {
